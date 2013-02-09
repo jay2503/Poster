@@ -33,7 +33,7 @@ Assuming Dependencies already installed on your machine.
 
 - Make virtual host,
 Open, httpd-vhosts.conf file and copy below lines at the EOF
-Where "/Path/to/Poster/GitClone/" would be your Path of Poster source code.
+Where `/Path/to/Poster/GitClone/` would be your Path of Poster source code.
 	
 ```
 <VirtualHost *:80>
@@ -58,4 +58,6 @@ Where "/Path/to/Poster/GitClone/" would be your Path of Poster source code.
 - Check http://my.poster.com is working fine or not.
 
 
+### Follow me @ [Just Developer][jfb]
 [xmp]: http://sourceforge.net/projects/xampp/
+[jfb]: http://www.facebook.com/JustDevelopers
