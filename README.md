@@ -35,7 +35,7 @@ Assuming Dependencies already installed on your machine.
 Open, httpd-vhosts.conf file and copy below lines at the EOF
 Where "/Path/to/Poster/GitClone/" would be your Path of Poster source code.
 	
-	&lt;VirtualHost *:80&gt;
+	`&lt;VirtualHost *:80&gt;
 		DocumentRoot /Path/to/Poster/GitClone/
 		ServerName my.poster.com
 		&lt;Directory /Path/to/Poster/GitClone/&gt;
@@ -43,10 +43,11 @@ Where "/Path/to/Poster/GitClone/" would be your Path of Poster source code.
 			Order deny,allow
 			Allow from all
 		&lt;/Directory&gt;
-	&lt;/VirtualHost&gt;
+	&lt;/VirtualHost&gt;`
 
 - Make entry in hosts file
-	127.0.0.1	my.poster.com
+
+	`127.0.0.1	my.poster.com`
 	
 - Restart Apache server	
 - Make DB under MySQL server name it "Poster"
