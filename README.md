@@ -35,15 +35,15 @@ Assuming Dependencies already installed on your machine.
 Open, httpd-vhosts.conf file and copy below lines at the EOF
 Where "/Path/to/Poster/GitClone/" would be your Path of Poster source code.
 	
-	<VirtualHost *:80>
+	&lt;VirtualHost *:80&gt;
 		DocumentRoot /Path/to/Poster/GitClone/
 		ServerName my.poster.com
-		<Directory /Path/to/Poster/GitClone/>
+		&lt;Directory /Path/to/Poster/GitClone/&gt;
 			AllowOverride All
 			Order deny,allow
 			Allow from all
-		</Directory>
-	</VirtualHost>
+		&lt;/Directory&gt;
+	&lt;/VirtualHost&gt;
 
 - Make entry in hosts file
 	127.0.0.1	my.poster.com
