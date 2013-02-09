@@ -59,7 +59,7 @@ Where `/Path/to/Poster/GitClone/` would be your Path of Poster source code.
 
 
 ### Me @ [Linkedin][link]
-### Follow me @ [Just Developer][jfb]
+### Follow me @ [Just Developers][jfb]
 ### Follow me @ [Just iOS][iosfb]
 
 [xmp]: http://sourceforge.net/projects/xampp/
