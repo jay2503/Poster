@@ -1,4 +1,11 @@
 Poster
 ======
 
-HTTP Poster Application
+About
+-----------
+
+Dependencies
+-----------
+ 
+Installation
+------------
