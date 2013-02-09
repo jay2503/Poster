@@ -11,6 +11,7 @@ Extra feature than other Poster Application,
 - Simple and cool UI using jQueryUI open source
 - jQuery support for further custom enhancement
 - Mac, Linux and Windows supported shortcuts to speed up!
+- The best feature, Supports file upload.
 
 
 Dependencies
