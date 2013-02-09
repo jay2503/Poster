@@ -58,6 +58,9 @@ Where `/Path/to/Poster/GitClone/` would be your Path of Poster source code.
 - Open config.php file and edit DB related changes.
 - Check http://my.poster.com is working fine or not.
 
+Screenshots
+------------
+[![Screen 1](https://github.com/altercation/solarized/raw/master/img/solarized-yinyang.png)](#features)
 
 ### Me @ [Linkedin][link]
 ### Follow me @ [Just Developers][jfb]
