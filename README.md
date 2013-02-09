@@ -4,7 +4,7 @@ This is developer tool for interacting with web services and other web resources
 
 Extra feature than other Poster Application,
 - Maintain history of WS calls
-- Reopen WS call History calls with Poster
+- Reopen WS call from History with Poster
 - Keep Parameter name history, and provides Auto-complete feature
 - Provides Auto-complete feature in URLs
 - Response can be view as HTML as well as Raw
