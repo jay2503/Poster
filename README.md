@@ -60,7 +60,11 @@ Where `/Path/to/Poster/GitClone/` would be your Path of Poster source code.
 
 Screenshots
 ------------
-[![Screen 1](https://github.com/altercation/solarized/raw/master/img/solarized-yinyang.png)](#features)
+**Poster Screen**
+[![Poster Screen](https://raw.github.com/jay2503/Poster/master/Screenshots/Poster.png)](#Poster)
+
+**History Screen**
+[![History Screen](https://github.com/jay2503/Poster/raw/master/Screenshots/History.png)](#History)
 
 ### Me @ [Linkedin][link]
 ### Follow me @ [Just Developers][jfb]
