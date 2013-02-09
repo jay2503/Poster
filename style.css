@@ -1,0 +1,76 @@
+@CHARSET "UTF-8";
+
+body {
+	font: 62.5% "Trebuchet MS", sans-serif;
+	margin: 20px;
+	min-width: 1150px;
+}
+
+.demoHeaders {
+	margin-top: 2em;
+}
+
+#dialog-link {
+	padding: .4em 1em .4em 20px;
+	text-decoration: none;
+	position: relative;
+}
+
+#dialog-link span.ui-icon {
+	margin: 0 5px 0 0;
+	position: absolute;
+	left: .2em;
+	top: 50%;
+	margin-top: -8px;
+}
+
+#icons {
+	margin: 0;
+	padding: 0;
+}
+
+#icons li {
+	margin: 2px;
+	position: relative;
+	padding: 4px 0;
+	cursor: pointer;
+	float: left;
+	list-style: none;
+}
+
+#icons span.ui-icon {
+	float: left;
+	margin: 0 4px;
+}
+
+#ajax-loader {
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	position: fixed;
+	background: #ffffff;
+	filter: alpha(opacity =         75);
+	-moz-opacity: 0.75;
+	-webkit-opacity: 0.75;
+	-o-opacity: 0.75;
+	opacity: 0.75;
+	z-index: 9998;
+}
+
+#ajax-loader .loader-image {
+	position: fixed;
+	background: url('loading.gif') scroll center center no-repeat #fff;
+	top: 50%;
+	left: 50%;
+	min-width: 300px;
+	height: 300px;
+	margin-left: -150px;
+	margin-top: -150px;
+	z-index: 9999;
+	filter: alpha(opacity =         100);
+	-moz-opacity: 1;
+	-webkit-opacity: 1;
+	-o-opacity: 1;
+	opacity: 1;
+}
