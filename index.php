@@ -80,7 +80,7 @@
 		$(document).ready(function(){
 			$(document).ajaxSend(function(event, request, ajaxOptions) {
 				var url = ajaxOptions.url;
-				if(url.indexOf("getURLs.php") != -1 && url.indexOf("getKeys.php") != -1){ 
+				if(url.indexOf("getURLs.php") == -1 && url.indexOf("getKeys.php") == -1){ 
 					addLoader();
 				}
 				
