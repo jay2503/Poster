@@ -760,7 +760,6 @@ function isJson($string) {
  json_decode($string);
  return (json_last_error() == JSON_ERROR_NONE);
 }
-
 function has_in_history($data){
 	$res = re_db_select("history", array("id"), "url='".$data['url'] . "' AND method='".$data['method']."' AND params='".$data['params']."'");
 	if($res !== false){

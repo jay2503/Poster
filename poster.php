@@ -86,6 +86,4 @@
 	$return = array("id"=>$id,"history"=>getHistoryAcc($his));
 	echo json_encode($return);
 	exit;
-	
-	
 ?>
