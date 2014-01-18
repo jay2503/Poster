@@ -1,8 +1,21 @@
+Screenshots
+------------
+**Poster Screen**
+[![Poster Screen](https://raw.github.com/jay2503/Poster/master/Screenshots/Poster.png)](#Poster)
+
+**JSON Viewer**
+[![JSON Viewer](https://raw.github.com/jay2503/Poster/master/Screenshots/JsonViewer.png)](#JSON Viewer)
+
+**History Screen**
+[![History Screen](https://github.com/jay2503/Poster/raw/master/Screenshots/History.png)](#History)
+
+
 About
 -----------
 This is developer tool for interacting with web services and other web resources that lets you make HTTP requests, set the parameters of Post and Get methods, also headers. 
 
 Extra feature than other Poster Application,
+- Auto detation of JSON Response, JSON Viewer built in.
 - Maintain history of WS calls
 - Reopen WS call from History with Poster
 - Keep Parameter name history, and provides Auto-complete feature
@@ -58,16 +71,7 @@ Where `/Path/to/Poster/GitClone/` would be your Path of Poster source code.
 - Open config.php file and edit DB related changes.
 - Check http://my.poster.com is working fine or not.
 
-Screenshots
-------------
-**Poster Screen**
-[![Poster Screen](https://raw.github.com/jay2503/Poster/master/Screenshots/Poster.png)](#Poster)
 
-**JSON Viewer**
-[![JSON Viewer](https://raw.github.com/jay2503/Poster/master/Screenshots/JsonViewer.png)](#JSON Viewer)
-
-**History Screen**
-[![History Screen](https://github.com/jay2503/Poster/raw/master/Screenshots/History.png)](#History)
 
 ### Me @ [Linkedin][link]
 ### Follow me @ [Just Developers][jfb]
