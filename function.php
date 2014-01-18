@@ -690,14 +690,25 @@ function addURL($domain){
 	}
 	
 function getHistoryAcc($his){
+	$isJson = false;
+	if(isJson($his['response'])){
+		$isJson = true;
+	}
 	$str.="<h3><b>".$his['method']."</b> : ".$his['url']." [".date('Y-m-d H:i:s',$his['time'])."] <b><a class='openWithPoster' hisid='".$his['id']."' style='color:blue;'>Open with Poster</a></b></h3>";
     				$str.='<div>
-    		<div id="hisTabs">
+    		<div id="hisTabs" class="hisTabsClass his_'.$his['id'].'">
 			  <ul>
 			    <li><a href="#hisTabs-1">Params</a></li>
-			    <li><a href="#hisTabs-2">Response</a></li>
-			    <li><a href="#hisTabs-3">HTML</a></li>
-			  </ul>
+			    <li><a href="#hisTabs-2">Raw</a></li>';
+					
+    				if(!$isJson){
+    					$str.='<li><a href="#hisTabs-3">HTML</a></li>';
+    				}
+			    
+    				if($isJson){
+    					$str.='<li><a href="#hisTabs-4">JSON Viewer</a></li>';
+    				}
+			  $str.='</ul>
 			  <div id="hisTabs-1">
 			  	<table>';
     				$keyValues = unserialize($his['params']);
@@ -712,13 +723,22 @@ function getHistoryAcc($his){
     				
 			  	$str.='</table>
 			  </div>
+			  
 			  <div id="hisTabs-2">
-			  		<iframe src="printResponse.php?his='.$his['id'].'" style="width:100%;border:1px solid #000;"></iframe>
-			  </div>
-			  <div id="hisTabs-3">
 			  		<code>'.htmlentities($his['response']).'</code>
-			  </div>
-			</div> 
+			  </div>';
+					if(!$isJson){
+    					$str.='<div id="hisTabs-3">
+							 <iframe src="printHTML.php?his='.$his['id'].'" style="width:100%;border:1px solid #000;"></iframe>
+						</div>';
+    				}
+			  
+					if($isJson){
+						$str.='<div id="hisTabs-4" class="hisTabs-4">
+						  		'.$his['response'].'
+						  </div>';    					
+    				}
+			$str.='</div> 
   		</div>';
 return $str;	
 }
@@ -734,5 +754,19 @@ function getHeaderCombo($sel=""){
 	}
 	$str.="</select>";
 	return $str;
-}	
+}
+
+function isJson($string) {
+ json_decode($string);
+ return (json_last_error() == JSON_ERROR_NONE);
+}
+
+function has_in_history($data){
+	$res = re_db_select("history", array("id"), "url='".$data['url'] . "' AND method='".$data['method']."' AND params='".$data['params']."'");
+	if($res !== false){
+		return $res[0]['id'];
+	}else{
+		return false;
+	}
+}
 ?>

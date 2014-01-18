@@ -44,17 +44,23 @@
 	curl_setopt($ch, CURLOPT_URL,            $url);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1 );
 	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-	curl_setopt($ch, CURLOPT_POST,           ($_REQUEST['method'] == "POST"));
+	
+	if(($_REQUEST['method'] == "POST")){
+		curl_setopt($ch, CURLOPT_POST,           ($_REQUEST['method'] == "POST"));
+	}
+	
 	curl_setopt($ch, CURLOPT_HTTPGET,        ($_REQUEST['method'] == "GET"));
 	curl_setopt($ch, CURLOPT_POSTFIELDS,     ($_REQUEST['method'] == "POST") ? $keyValue : null); 
 	curl_setopt($ch, CURLOPT_HTTPHEADER,     $headerKeyValue);
-//	curl_setopt($ch, CURLOPT_HEADER,     true); 
+	curl_setopt($ch, CURLOPT_HEADER,     false);
+	curl_setopt($ch, CURLINFO_HEADER_OUT, false); 
 	
 	$result = curl_exec ($ch);
 	
 	if ($result === false){
 		$result = "<div style='color:red;'>".curl_error($ch)."</div>";
 	}
+	$headerSent = curl_getinfo($ch, CURLINFO_HEADER_OUT);
 	
 	$insertData = array(
 		'url' => $_REQUEST['url'],
@@ -64,7 +70,15 @@
 		'time' => time(),
 	);
 	
-	$id = re_db_insert("history", $insertData);
+	$history_id = has_in_history($insertData);
+	if(!$history_id){
+		$id = re_db_insert("history", $insertData);
+	}else{
+		$id = $history_id;
+		re_db_update("history", $insertData, "id=".$history_id);
+	}
+	
+	
 	
 	$history = re_db_select("history", array("*"),"id = $id");
 	$his = $history[0];

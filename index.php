@@ -25,7 +25,9 @@
 	<title>Poster App By Jay Mehta</title>
 	<link href="JqueryUI/css/smoothness/jquery-ui-1.9.2.custom.css" rel="stylesheet">
 	<link href="style.css" rel="stylesheet">
+	<link href="JSONViewer/jquery.jsonview.css" rel="stylesheet">
 	<script src="JqueryUI/js/jquery-1.8.3.js"></script>
+	<script src="JSONViewer/jquery.jsonview.js"></script>
 	<script src="shortcut.js"></script>
 	<script src="custom.js"></script>
 	<script src="JqueryUI/js/jquery-ui-1.9.2.custom.js"></script>
@@ -193,20 +195,13 @@
 					$.get('clearParam.php',function(){});
 				});
 
-			$("#tabs, #hisTabs, #subtabs").tabs();
-
-			$("#tabs").tabs({select: function(event, ui) {
-				window.location.replace(ui.tab.hash);
-		    },});
-
-			$( "#accordion" ).accordion({
-			     collapsible: true,
-			     heightStyle: "content"
-			 }).find('a.openWithPoster').click(function(ev){
-				 	ev.preventDefault();
-				    ev.stopPropagation();
-				    openWithPoster($(this).attr("hisid"));
-				 });
+			$("#subtabs").tabs();
+			
+			$("#tabs").tabs({
+				beforeLoad: function( event, ui ) {
+			        return ui.panel.html() == "";
+			    }
+			});
 
 			 // URL Auto
 				$("input[name='url']").autocomplete({
@@ -231,7 +226,7 @@
 			  			
 			  	$("#shortcutList").html(shlist);
 
-			  	$("#clearHistory").click(function(){
+			  	$("#clearHistory").live("click",function(){
 			  		if($("#dialog-confirm").size() == 0){
 						$("body").append("<div id = 'dialog-confirm'/>");
 					}
@@ -317,6 +312,11 @@
 					  success: function(data){
 						showAlertiFrame(data.id);
 						// Add to history
+						var parent = $('#accordion').find(".his_"+data.id);
+						if(parent){
+							var head = parent.prev('h3');
+							parent.add(head).remove();
+						}
 						$('#accordion').prepend(data.history).accordion('destroy').accordion({
 						     collapsible: true,
 						     heightStyle: "content"
@@ -325,7 +325,15 @@
 							    ev.stopPropagation();
 							    openWithPoster($(this).attr("hisid"));
 							 });
-						$("#hisTabs").tabs();
+						
+						$(".hisTabsClass").tabs({
+							 activate: function( event, ui ) {
+							 	if(ui.newPanel.hasClass("hisTabs-4")){
+							 		var jsonData = ui.newPanel.html();
+									ui.newPanel.JSONView($.trim(jsonData));	
+							 	}
+							 }	
+						});
 					  },
 					});
 			}
@@ -337,7 +345,7 @@
 		    $("#dialog-confirm").parent().css("left",($(window).width() - $(".ui-dialog").width())/2);
 		}
 		function showAlertiFrame(data){
-			showAlert('<iframe src="printResponse.php?his='+data+'" style="max-height:500px;max-width:800px;border:0px solid #000;" onload="javascript:resizeIframe(this);"></iframe>');
+			showAlert('<iframe src="printResponse.php?his='+data+'" style="max-height:500px;max-width:950px;border:0px solid #000;" onload="javascript:resizeIframe(this);"></iframe>');
 		}
 		function showAlert(msg){
 			if($("#dialog-confirm").size() == 0){
@@ -363,7 +371,7 @@
 <div id="tabs">
   <ul>
     <li><a href="#tabs-1">Poster</a></li>
-    <li><a href="#tabs-2">History</a></li>
+    <li><a href="history.php">History</a></li>
   </ul>
   <div id="tabs-1">
   <div style="float:right;">
@@ -494,21 +502,7 @@
 </div>
 <div style="clear:both;"></div>
   </div>
-  <div id="tabs-2">
-  	<div><a href="javascript:void(0);" id="clearHistory">Clear History</a><br/><br/></div>
-    <div id="accordion">
-    	<?php 
-    		$history = re_db_select("history", array("*"),"1=1 order by `time` desc limit 0,20");
-    		
-    		if ($history){
-    			foreach ($history as $his){
-    				$str.=getHistoryAcc($his);
-    			}
-    		}
-    		echo $str;
-    	?>
-  	</div>
-  </div>
+  
 </div>
 <div style="display: none;" id="ajax-loader"><div class="loader-image"></div></div>
 <div>
