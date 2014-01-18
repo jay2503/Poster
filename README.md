@@ -63,6 +63,9 @@ Screenshots
 **Poster Screen**
 [![Poster Screen](https://raw.github.com/jay2503/Poster/master/Screenshots/Poster.png)](#Poster)
 
+**JSON Viewer**
+[![JSON Viewer](https://raw.github.com/jay2503/Poster/master/Screenshots/JsonViewer.png)](#JSON Viewer)
+
 **History Screen**
 [![History Screen](https://github.com/jay2503/Poster/raw/master/Screenshots/History.png)](#History)
 
