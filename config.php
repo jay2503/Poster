@@ -13,6 +13,8 @@ define("SITE_PATH", $_SERVER['DOCUMENT_ROOT']."/");
 
 define("USE_PCONNECT",false);
 
+define("HISTORY_RECORDS", 50);
+
 require_once 'function.php';
 
 // Connct DB

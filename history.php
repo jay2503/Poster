@@ -6,7 +6,7 @@
   	<div><a href="javascript:void(0);" id="clearHistory">Clear History</a><br/><br/></div>
     <div id="accordion">
     	<?php 
-    		$history = re_db_select("history", array("*"),"1=1 order by `time` desc limit 0,20");
+    		$history = re_db_select("history", array("*"),"1=1 order by `time` desc limit 0,".HISTORY_RECORDS);
     		
     		if ($history){
     			foreach ($history as $his){
