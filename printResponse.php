@@ -15,6 +15,7 @@ $his = re_db_select("history", array("id","response","params"),"id=".$_GET['his'
 	<style>
 body{
 	min-width: 700px;
+	font: 82.5% "Trebuchet MS", sans-serif;
 }
 </style>
 <div id="responseTabs" class="responseTabs">
