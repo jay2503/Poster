@@ -72,7 +72,7 @@ Where `/Path/to/Poster/GitClone/` would be your Path of Poster source code.
 - Check http://my.poster.com is working fine or not.
 
 
-
+### Blog http://jaym2503.blogspot.in
 ### Me @ [Linkedin][link]
 ### Follow me @ [Just Developers][jfb]
 ### Follow me @ [Just iOS][iosfb]
