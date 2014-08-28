@@ -68,7 +68,7 @@
 
 		var rowTemplateHeader ='<tr>'
 				+'<td>'
-				+'<?php echo getHeaderCombo();?>'
+				+'<input type="text" name="header_key[]" style="width:425px;" title="Value" value=""/>'
 				+'</td>'
 				+'<td><input type="text" name="header_value[]" style="width:425px;" title="Value" value=""/></td>'
 				+'<td>'
@@ -458,9 +458,8 @@
 												?>
 												<tr>
 								<td>
-									<?php 
-									$parts = explode(":", $value);
-									echo getHeaderCombo($parts[0]);?>
+									<input type="text" name="header_key[]" style="width:425px;" title="Value" value="<?php echo ltrim($parts[0]);?>"/>
+									
 								</td>
 								<td><input type="text" name="header_value[]" style="width:425px;" title="Value" value="<?php echo ltrim($parts[1]);?>"/></td>
 								<td>
@@ -476,7 +475,7 @@
 											?>
 												<tr>
 								<td>
-									<?php echo getHeaderCombo();?>
+									<input type="text" name="header_key[]" style="width:425px;" title="Value" value=""/>
 								</td>
 								<td><input type="text" name="header_value[]" style="width:425px;" title="Value" value=""/></td>
 								<td>

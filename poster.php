@@ -50,7 +50,11 @@
 	}
 	
 	curl_setopt($ch, CURLOPT_HTTPGET,        ($_REQUEST['method'] == "GET"));
-	curl_setopt($ch, CURLOPT_POSTFIELDS,     ($_REQUEST['method'] == "POST") ? $keyValue : null); 
+	
+	if(($_REQUEST['method'] == "POST")){
+		curl_setopt($ch, CURLOPT_POSTFIELDS,     ($_REQUEST['method'] == "POST") ? $keyValue : null);
+	}
+	 
 	curl_setopt($ch, CURLOPT_HTTPHEADER,     $headerKeyValue);
 	curl_setopt($ch, CURLOPT_HEADER,     false);
 	curl_setopt($ch, CURLINFO_HEADER_OUT, false); 
