@@ -51,6 +51,10 @@
 	
 	curl_setopt($ch, CURLOPT_HTTPGET,        ($_REQUEST['method'] == "GET"));
 	
+	if(in_array("Content-Type: application/json", $headerKeyValue)){
+		$keyValue = json_encode($keyValue);
+	}
+	
 	if(($_REQUEST['method'] == "POST")){
 		curl_setopt($ch, CURLOPT_POSTFIELDS,     ($_REQUEST['method'] == "POST") ? $keyValue : null);
 	}
