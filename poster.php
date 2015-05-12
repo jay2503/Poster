@@ -72,7 +72,7 @@
 	
 	$insertData = array(
 		'url' => $_REQUEST['url'],
-		'params' => serialize($keyValue),
+		'params' => serialize(json_decode($keyValue, true)),
 		'method' => $_REQUEST['method'],
 		'response' => $result,
 		'time' => time(),
